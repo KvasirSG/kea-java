@@ -5,3 +5,5 @@ out/
 kea-java.iml
 
 .idea/
+
+*.iml
