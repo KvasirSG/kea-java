@@ -11,6 +11,8 @@ public class Car {
         this.price=price;
         this.colour=colour;
     }
+
+    // Getters
     public int getGears() {
         return gears;
     }
@@ -24,5 +26,27 @@ public class Car {
 
     public String getColour() {
         return colour;
+    }
+    // Setters
+
+    public void setColour(String colour) {
+        this.colour = colour;
+    }
+
+    public void setGears(int gears) {
+        this.gears = gears;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
+    public void setYear(int year) {
+        this.year = year;
+    }
+
+    @Override
+    public String toString() {
+        return "Year: " + year + ", Price: " + price + ", Color: " + colour + ", Gears: " + gears;
     }
 }
