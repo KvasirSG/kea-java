@@ -26,4 +26,9 @@ public class Truck extends  Car{
     public void setHanger(boolean hanger) {
         this.hanger = hanger;
     }
+
+    @Override
+    public String toString() {
+        return "Year: " + getYear() + ", Price: " + getPrice() + ", Color: " + getColour() + ", Gears: " + getGears()+", BruttoLoad: "+getBruttoLoad()+ ", Hanger: "+isHanger();
+    }
 }
