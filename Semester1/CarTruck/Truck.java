@@ -29,6 +29,6 @@ public class Truck extends  Car{
 
     @Override
     public String toString() {
-        return "Year: " + getYear() + ", Price: " + getPrice() + ", Color: " + getColour() + ", Gears: " + getGears()+", BruttoLoad: "+getBruttoLoad()+ ", Hanger: "+isHanger();
+        return super.toString()+", BruttoLoad: "+getBruttoLoad()+", Hanger: "+isHanger();
     }
 }
