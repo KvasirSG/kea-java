@@ -58,7 +58,7 @@ public class Car {
 
     @Override
     public String toString() {
-        return "Type: "+getCarType() + year + ", Price: " + price + ", Color: " + colour + ", Gears: " + gears;
+        return "Type: "+getCarType()+", Year: " + year + ", Price: " + price + ", Color: " + colour + ", Gears: " + gears;
     }
 
 }
