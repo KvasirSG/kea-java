@@ -6,7 +6,7 @@ public class Truck extends  Car{
 
 
     public Truck(int year, int price, String colour, int bruttoLoad, boolean hanger) {
-        super(year, price, colour);
+        super(year, price, colour,CarType.TRUCK);
         this.bruttoLoad = bruttoLoad;
         this.hanger = hanger;
     }

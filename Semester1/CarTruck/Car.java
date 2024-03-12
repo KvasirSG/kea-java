@@ -5,11 +5,19 @@ public class Car {
     private int price;
     private String colour;
     private int gears = 5;
+    private final CarType carType;
 
+    public Car(int year, int price, String colour, CarType carType){
+        this.year=year;
+        this.price=price;
+        this.colour=colour;
+        this.carType = carType;
+    }
     public Car(int year, int price, String colour){
         this.year=year;
         this.price=price;
         this.colour=colour;
+        this.carType = CarType.CAR;
     }
 
     // Getters
@@ -26,6 +34,9 @@ public class Car {
 
     public String getColour() {
         return colour;
+    }
+    public CarType getCarType() {
+        return carType;
     }
     // Setters
 
@@ -49,4 +60,5 @@ public class Car {
     public String toString() {
         return "Year: " + year + ", Price: " + price + ", Color: " + colour + ", Gears: " + gears;
     }
+
 }
