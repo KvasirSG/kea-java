@@ -56,6 +56,8 @@ public abstract class Car implements Vehicle{
         this.year = year;
     }
 
+    public abstract void printData();
+
     @Override
     public String toString() {
         return "Type: "+getCarType()+", Year: " + year + ", Price: " + price + ", Color: " + colour + ", Gears: " + gears;
