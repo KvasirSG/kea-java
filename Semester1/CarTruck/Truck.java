@@ -28,6 +28,11 @@ public class Truck extends  Car{
     }
 
     @Override
+    public void printData() {
+        System.out.println(this);
+    }
+
+    @Override
     public String toString() {
         return super.toString()+", BruttoLoad: "+getBruttoLoad()+", Hanger: "+isHanger();
     }
