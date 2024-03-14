@@ -1,6 +1,6 @@
 package Semester1.CarTruck;
 
-public class Car {
+public class Car implements Vehicle {
     private int year;
     private int price;
     private String colour;
