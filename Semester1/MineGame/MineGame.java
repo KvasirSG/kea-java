@@ -1,13 +1,9 @@
-// Import necessary libraries for GUI and event handling
 package Semester1.MineGame;
 
+// Import necessary libraries for GUI and event handling
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.util.InputMismatchException;
-import java.util.Random;
-import java.util.Scanner;
 
 // Main class for the MineGame
 public class MineGame {
