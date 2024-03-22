@@ -44,6 +44,8 @@ public class Coord extends JButton {
     public void setMine(boolean mine) {
         if (mine) {
             // If this cell is a mine, customize its appearance here if needed
+            //setBackground(Color.red);
+            //setText("B");
         }else {
             reset(); // Reset the cell if it's not a mine
         }

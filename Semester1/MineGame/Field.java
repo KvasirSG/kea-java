@@ -2,6 +2,8 @@ package Semester1.MineGame;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -115,13 +117,14 @@ public class Field extends JPanel {
         if (px >= 0 && px < fieldSize && py >= 0 && py < fieldSize){
             player.setPlayer(false); // Remove player from current position
             player = grid[px][py]; // Move player to new position
-            if (!player.isMine()){
+            if (player.isMine()) {
+                showLosingFrame();
+            }else if(player.isGoal()){
+                showWinningFrame();
+            }else {
                 revealAdjacentMines(); // Check for adjacent mines
                 player.setPlayer(true); // Set player at new position
-            }else {
-                reset(); // Reset the game if the player hits a mine
             }
-
         }
     }
 
@@ -197,5 +200,85 @@ public class Field extends JPanel {
         if (!adjacentCoords.isEmpty()) {
             player.setMineClose(true); // Notify that a mine is close
         }
+    }
+public void showLosingFrame(){
+    // Create and display the Game Over frame
+    JFrame gameOverFrame = new JFrame("Game Over");
+    gameOverFrame.setSize(300, 200);
+    gameOverFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    gameOverFrame.setLayout(new BorderLayout());
+
+    JLabel gameOverLabel = new JLabel("Game Over", SwingConstants.CENTER);
+    gameOverFrame.add(gameOverLabel, BorderLayout.CENTER);
+
+    // Create a panel to hold buttons
+    JPanel buttonPanel = new JPanel();
+    buttonPanel.setLayout(new FlowLayout());
+
+    // Play Again button
+    JButton playAgainButton = new JButton("Play Again");
+    playAgainButton.addActionListener(new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            reset(); // Reset the game
+            gameOverFrame.dispose(); // Close the Game Over frame
+        }
+    });
+
+    // Close button
+    JButton closeButton = new JButton("Close");
+    closeButton.addActionListener(new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            System.exit(0); // Terminate the application
+        }
+    });
+
+    buttonPanel.add(playAgainButton);
+    buttonPanel.add(closeButton);
+    gameOverFrame.add(buttonPanel, BorderLayout.SOUTH);
+
+    gameOverFrame.setLocationRelativeTo(null); // Center the window
+    gameOverFrame.setVisible(true);
+}
+    public void showWinningFrame() {
+        // Create and display the Winning frame
+        JFrame winningFrame = new JFrame("You Win!");
+        winningFrame.setSize(300, 200);
+        winningFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        winningFrame.setLayout(new BorderLayout());
+
+        JLabel winningLabel = new JLabel("Congratulations, You Win!", SwingConstants.CENTER);
+        winningFrame.add(winningLabel, BorderLayout.CENTER);
+
+        // Create a panel to hold buttons
+        JPanel buttonPanel = new JPanel();
+        buttonPanel.setLayout(new FlowLayout());
+
+        // Play Again button
+        JButton playAgainButton = new JButton("Play Again");
+        playAgainButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                reset(); // Reset the game
+                winningFrame.dispose(); // Close the Winning frame
+            }
+        });
+
+        // Close button
+        JButton closeButton = new JButton("Close");
+        closeButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.exit(0); // Terminate the application
+            }
+        });
+
+        buttonPanel.add(playAgainButton);
+        buttonPanel.add(closeButton);
+        winningFrame.add(buttonPanel, BorderLayout.SOUTH);
+
+        winningFrame.setLocationRelativeTo(null); // Center the window
+        winningFrame.setVisible(true);
     }
 }
